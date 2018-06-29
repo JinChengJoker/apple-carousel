@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+ul {
+    list-style: none;
+}
 
 .carousel {
     width: 920px;
@@ -15,6 +18,14 @@
     display: flex;
     transition: all .5s;
 }
-.btns {
+.btns > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
+}
+.btns > ul > li {
+    display: flex;
+    justify-content: center;
+    width: 60px;
 }

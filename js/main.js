@@ -1,6 +1,7 @@
 let $slides = $('.slides')
 let $imgs = $('.slides > img')
-let $btns = $('.btns > button')
+let $btns = $('.btns > span')
+let n = 0
 
 for(let i = 0; i < $imgs.length; i++) {
     $btns.eq(i).on('click', function() {
@@ -10,3 +11,11 @@ for(let i = 0; i < $imgs.length; i++) {
         })
     })
 }
+
+setInterval(function() {
+    $btns.eq(n).click()
+    n++
+    if(n === $imgs.length) {
+        n = 0
+    }
+}, 3000)
