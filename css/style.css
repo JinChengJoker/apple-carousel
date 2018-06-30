@@ -3,14 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    background: #f2f2f2;
+}
 ul {
     list-style: none;
+}
+img {
+    vertical-align: bottom;
 }
 
 .carousel {
     width: 920px;
     margin: 60px auto 0;
-    border: 1px solid red;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 3px #AAAAAA;
     overflow: hidden;
     box-sizing: content-box;
 }
@@ -18,14 +26,31 @@ ul {
     display: flex;
     transition: all .5s;
 }
-.btns > ul {
+.btns {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 10px;
+    border-top: 1px solid #e2d5d5;
+    background: linear-gradient(to bottom, #fff 0%,#e6e6e6 100%);
 }
-.btns > ul > li {
-    display: flex;
-    justify-content: center;
-    width: 60px;
+.btns > li {
+    position: relative;
+    padding: 10px 20px;
+    border-right: 1px solid #e2d5d5;
+    cursor: pointer;
+}
+.btns > li:first-child {
+    border-left: 1px solid #e2d5d5;
+}
+.btns > li.active {
+    background: radial-gradient(ellipse at center, #fff 0%,#bbb 100%);
+}
+.btns > li.active::before {
+    display: block;
+    content: '';
+    border: 6px solid transparent;
+    border-top-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: -1px;
+    transform: translateX(-6px)
 }
