@@ -16,11 +16,11 @@ for(let i = 0; i < $imgs.length; i++) {
 }
 
 let timer = setInterval(function() {
-    $btns.eq(n+1).click()
     n++
     if(n === $imgs.length) {
         n = 0
     }
+    $btns.eq(n).click()
 }, 3000)
 
 $carousel.on('mouseenter', function() {
@@ -28,10 +28,10 @@ $carousel.on('mouseenter', function() {
 })
 $carousel.on('mouseleave', function() {
     timer = setInterval(function() {
-        $btns.eq(n+1).click()
         n++
         if(n === $imgs.length) {
             n = 0
         }
+        $btns.eq(n).click()
     }, 3000)
 })
