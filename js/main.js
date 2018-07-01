@@ -1,37 +1,32 @@
-let $carousel = $('.carousel')
-let $slides = $('.slides')
 let $imgs = $('.slides > img')
 let $btns = $('.btns > li')
 let n = 0
+let timer = carouselInterval()
 
 for(let i = 0; i < $imgs.length; i++) {
     $btns.eq(i).on('click', function(e) {
         n = i
-        $(e.currentTarget).addClass('active').siblings().removeClass('active')
         let px = i * -920 + 'px'
-        $slides.css({
+        $(e.currentTarget).addClass('active').siblings().removeClass('active')
+        $('.slides').css({
             transform: 'translateX(' + px + ')'
         })
     })
 }
 
-let timer = setInterval(function() {
-    n++
-    if(n === $imgs.length) {
-        n = 0
-    }
-    $btns.eq(n).click()
-}, 3000)
-
-$carousel.on('mouseenter', function() {
+$('.carousel').on('mouseenter', function() {
     clearInterval(timer)
 })
-$carousel.on('mouseleave', function() {
-    timer = setInterval(function() {
+$('.carousel').on('mouseleave', function() {
+    timer = carouselInterval()
+})
+
+function carouselInterval() {
+    return setInterval(function() {
         n++
         if(n === $imgs.length) {
             n = 0
         }
         $btns.eq(n).click()
     }, 3000)
-})
+}
